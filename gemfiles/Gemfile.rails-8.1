@@ -2,8 +2,13 @@ source "https://rubygems.org"
 
 gemspec path: ".."
 
-# Note: sequel-activerecord_connection needs to be updated to support Rails 8.1
-# For now, using relaxed version constraint or github version
+# NOTE: Rails 8.1 support is ready in rodauth-rails, but depends on
+# sequel-activerecord_connection being updated to support Rails 8.1.
+# Once sequel-activerecord_connection 2.1+ is released with Rails 8.1 support,
+# this Gemfile will work and Rails 8.1 can be enabled in CI.
+# For testing locally, you can use:
+#   gem "sequel-activerecord_connection", github: "janko/sequel-activerecord_connection"
+# or patch the gemspec to allow activerecord >= 8.1
 gem "sequel-activerecord_connection", "~> 2.0"
 
 gem "rake", "~> 12.0"

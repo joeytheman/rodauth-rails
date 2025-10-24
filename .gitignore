@@ -1,5 +1,6 @@
 Gemfile.lock
 gemfiles/*.lock
+gemfiles/vendor/
 pkg/
 database.sqlite3
 tmp/
