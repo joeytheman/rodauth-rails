@@ -4,3 +4,5 @@ pkg/
 database.sqlite3
 tmp/
 .ruby-version
+vendor/bundle/
+.bundle/
