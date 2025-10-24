@@ -1,0 +1,31 @@
+source "https://rubygems.org"
+
+gemspec path: ".."
+
+# NOTE: Rails 8.1 support is ready in rodauth-rails, but depends on
+# sequel-activerecord_connection being updated to support Rails 8.1.
+# Once sequel-activerecord_connection 2.1+ is released with Rails 8.1 support,
+# this Gemfile will work and Rails 8.1 can be enabled in CI.
+# For testing locally, you can use:
+#   gem "sequel-activerecord_connection", github: "janko/sequel-activerecord_connection"
+# or patch the gemspec to allow activerecord >= 8.1
+gem "sequel-activerecord_connection", "~> 2.0"
+
+gem "rake", "~> 12.0"
+gem "warning"
+
+gem "rails", "~> 8.1.0"
+gem "sqlite3", "~> 2.0",                platforms: :mri
+gem "activerecord-jdbcsqlite3-adapter", platforms: :jruby
+
+gem "capybara"
+
+if RUBY_VERSION >= "3.1.0"
+  # mail gem dependencies on Ruby 3.1+
+  gem "net-smtp"
+  gem "net-imap"
+  gem "net-pop"
+
+  # rake gem dependency on Ruby 3.1+
+  gem "matrix"
+end
